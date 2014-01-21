@@ -1,0 +1,92 @@
+//Main Window
+var cWindow = Ti.UI.currentWindow;
+
+var navWin1 = Ti.UI.iOS.createNavigationWindow({
+	window: cWindow
+});
+
+
+// //Activity Indicator open/close window
+// var noPointWin = Ti.UI.createWindow({
+  // backgroundColor: "#fff"
+// });
+// 
+// //Activity Indicator start
+// var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
+// 
+// var theIndicator = Ti.UI.createActivityIndicator({
+	// color: 'black',
+	// font: {fontSize: 22, fontFamily: "AmericanTypewriter", fontWeight: "bold"},
+	// message: 'Showing House History....',
+	// style:style,
+	// center: 0,
+	// height:Ti.UI.SIZE,
+	// width:Ti.UI.SIZE
+// });
+// noPointWin.add(theIndicator);
+// 
+// noPointWin.addEventListener('open', function (e) {
+  // theIndicator.show();
+  // setTimeout(function(){
+    // e.source.close();
+    // theIndicator.hide();
+  // }, 4000);
+// });
+// //Activity Indicator end
+
+
+
+
+var categoryTable = Ti.UI.createTableView({
+	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
+	headerTitle:'Categories',
+	title: {fontSize: 22, fontFamily: "Helvetica", textAlign: 'center'},
+	height: 375,
+	top:0,
+	width: Ti.UI.setWidth,
+	backgroundColor: '#fff'
+});
+
+
+// var movieTable = Ti.UI.createTableView({
+	// style: Ti.UI.iPhone.TableViewStyle.PLAIN,
+	// headerTitle:"Categories",
+	// title: {fontSize: 22, fontFamily: "Helvetica"},
+	// height: 275,
+	// top: 20,
+	// width: Ti.UI.setWidth,
+	// borderColor: "black"
+// });
+// 
+// 
+// var avengerView = Ti.UI.createView({
+	// backgroundColor: "#000",
+	// borderRadius: 10,
+	// height:50,
+	// bottom: 120
+// });
+// 
+// var avengerLabel = Ti.UI.createLabel({
+	// text: "Enter",
+	// font: {fontSize: 24, fontFamily: "Helvetica", fontWeight: "bold"},
+	// color: "#fff",
+	// center: 0
+// });
+// 
+// var avengerImage = Ti.UI.createImageView({
+	// image: "posters/avengers.jpg",
+	// left: 0
+// });
+// avengerView.add(avengerLabel, avengerImage);
+// 
+// 
+// avengerView.addEventListener("click", function(){
+	// var mWindow = Ti.UI.createWindow({
+	// });
+	// mWindow.open(mWindow, {animate:true});
+// });
+
+
+cWindow.add(categoryTable);
+// cWindow.open(noPointWin, {animate: true});
+navWin1.open();

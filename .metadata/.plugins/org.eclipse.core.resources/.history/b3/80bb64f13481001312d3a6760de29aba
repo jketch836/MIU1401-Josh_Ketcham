@@ -1,0 +1,24 @@
+var movieData =
+{
+		"Iron Man":
+	{
+		"movieRow": 
+			[
+				{
+					title:"Iron Man", 
+					rating: "PG-13",
+					moviePic: "bioPic/Ned_Stark_1.jpg",
+					genre: 'PG-13',
+					star: 'Robert Downey Jr., Terrence Howard, Jeff Bridges, Gwyneth Paltrow, Leslie Bibb, Shaun Toub, Faran Tahir, Clark Gregg, Bill Smitrovich, Sayed Badreya, Paul Bettany, Jon Favreau',
+					director: 'Jon Favreau',
+					studio:"Marvel Studios", 
+					release: "2008",
+					synopsis: "After surviving an unexpected attack in enemy territory, jet-setting industrialist Tony Stark builds a high-tech suit of armor and vows to protect the world as Iron Man. Straight from the pages of the legendary comic book, Iron Man is a hero who is built - not born - to be unlike any other."
+				},
+				{
+
+				}
+			]
+	},
+
+};
