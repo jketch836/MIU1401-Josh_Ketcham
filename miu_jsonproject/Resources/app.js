@@ -38,9 +38,6 @@ enterView.addEventListener("click", function(){
 	mWindow.open(mWindow, {animate:true});
 });
 
-
-
 //Main Code
-lWindow.add(enterView);
-lWindow.add(imageView);
+lWindow.add(imageView, enterView);
 lWindow.open();
