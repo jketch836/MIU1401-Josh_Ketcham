@@ -1,0 +1,31 @@
+//ButtonBar start
+var bar1 = Titanium.UI.createButtonBar({
+    labels:['Synopsis', 'Reviews'],
+    backgroundColor:'#f3f3f3',
+    top:400,
+    style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
+    height:25,
+    width:175
+});
+
+bar1.addEventListener('click', function(kingdom){
+	//Synopsis
+	if(kingdom.index === 0){
+		var synopsisWin = Ti.UI.createWindow({
+			title: 'Synopsis',
+			backgroundColor: "#fff"
+		});	
+		
+		cWin.nav.openWindow(synopsisWin);
+		
+		
+	}else if(kingdom.index === 1){
+		
+	//House Lannister
+	var reviewsWin = Ti.UI.createWindow({
+		title: 'Reviews',
+		backgroundColor: "#fff"
+	});	
+	cWin.nav.openWindow(reviewsWin, {animate: true});
+});
+//ButtonBar End

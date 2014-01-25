@@ -1,0 +1,311 @@
+Ti.UI.setBackgroundColor('white');
+
+var cWindow = Ti.UI.currentWindow;
+
+
+//Activity Indicator open/close window
+var loadingWin = Ti.UI.createWindow({
+  backgroundColor: "#fff"
+});
+
+//Activity Indicator start
+var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
+
+var anIndicator = Ti.UI.createActivityIndicator({
+	color: 'black',
+	font: {fontSize: 18, fontFamily: "AmericanTypewriter", fontWeight: "bold"},
+	message: 'Loading SpiderMan Movie....',
+	style:style,
+	center: 0,
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE
+});
+loadingWin.add(anIndicator);
+
+loadingWin.addEventListener('open', function (e) {
+  anIndicator.show();
+  setTimeout(function(){
+    e.source.close();
+    theIndicator.hide();
+  }, 4000);
+});
+//Activity Indicator end
+
+
+
+Ti.include('movie_json1.js');
+
+//ScrollView
+var movieScrollView = Titanium.UI.createScrollView({
+    contentWidth:'auto',
+    contentHeight:'auto',
+    top:0,
+    showVerticalScrollIndicator:true
+});
+
+
+
+movieListTemplate = {
+	childTemplates:
+	[
+		{
+			type: "Ti.UI.ImageView",
+			bindId: 'moviePic',
+			properties:
+			{
+				width: 50,
+				height: 75,
+				left: 0,
+				top:0
+			}
+		},
+		{
+			type: "Ti.UI.Label",
+			bindId: 'title',
+			properties:
+			{
+				color: "black",
+				font: {fontSize: 18, fontFamily: "Arial", fontWeight: "bold"},
+				left: 60,
+				top: 0
+			}
+		},
+
+		{
+			type: "Ti.UI.Label",
+			bindId: 'release',
+			properties:
+			{
+				color: "grey",
+				font: {fontSize: 14, fontFamily: "Arial"},
+				left: 60,
+				top: 25
+			}
+		},
+		{
+			type: "Ti.UI.Label",
+			bindId: 'rating',
+			properties:
+			{
+				color: "grey",
+				font: {fontSize: 12, fontFamily: "Arial"},
+				right: 5,
+				top: 0
+			}
+		},
+		{
+			type: "Ti.UI.Label",
+			bindId: 'score',
+			properties:
+			{
+				color: "grey",
+				font: {fontSize: 12, fontFamily: "Arial"},
+				right: 5,
+				top: 25
+			}
+		},
+	],
+};
+
+	//Spiderman Object Info
+var listSection = Ti.UI.createListSection();
+var movieListView = Ti.UI.createListView({	
+	top:0,
+	templates:{'defaultTemplate': movieListTemplate},
+	defaultItemTemplate: 'defaultTemplate'
+	});
+
+
+var theMovie = [];
+
+for (var i=0, j=movieData['Spiderman'].movieRow.length; i<j; i++){
+		title = movieData['Spiderman'].movieRow[i].title;
+		rating = movieData['Spiderman'].movieRow[i].rating;
+		score = movieData['Spiderman'].movieRow[i].score;
+		moviePic = movieData['Spiderman'].movieRow[i].moviePic;
+		bannerPic = movieData['Spiderman'].movieRow[i].bannerPic;
+		studio = movieData['Spiderman'].movieRow[i].studio;
+		release = movieData['Spiderman'].movieRow[i].release;
+		synopsis = movieData['Spiderman'].movieRow[i].synopsis;
+		overall = movieData['Spiderman'].movieRow[i].overall;
+		name = movieData['Spiderman'].movieRow[i].name;
+		news = movieData['Spiderman'].movieRow[i].news;
+		date = movieData['Spiderman'].movieRow[i].date;
+		review = movieData['Spiderman'].movieRow[i].review;
+	theMovie.push
+	({
+			properties:
+			{
+				title: title,
+				rating: rating,
+				score: score,
+				moviePic: moviePic,
+				bannerPic: bannerPic,
+				studio: studio,
+				release: release,
+				synopsis: synopsis,
+				overall: overall,
+				name: name,
+				news: news,
+				date: date,
+				review: review,
+			},	
+				title:
+					{
+						text: title
+					},
+				rating:
+					{
+						text: rating
+					},
+				release:
+					{
+						text: release					
+					},
+				score:
+					{
+						text: score
+					},
+				moviePic:
+					{
+						image: moviePic
+					}
+
+		});
+};
+
+
+// Movie Info/Pics Start
+movieListView.addEventListener("itemclick", function(movieEvent) {
+	var item =  movieEvent.section.getItemAt(movieEvent.itemIndex);
+	var movieWin = Ti.UI.createWindow({
+		title : item.properties.title,
+		font : {
+			fontSize : 18,
+			fontFamily : "Helvetica"
+		},
+		backgroundColor : "#fff"
+	});
+
+	var bannerImage = Ti.UI.createImageView({
+		image : item.properties.bannerPic,
+		height : 175,
+		width : Ti.UI.setwidth,
+		top : 5
+	});
+
+	var posterImage = Ti.UI.createImageView({
+		image : item.properties.moviePic,
+		height : 200,
+		width : 150,
+		top : 185,
+		left : 5
+	});
+
+	var infoView = Ti.UI.createView({
+		backgroundColor : "#f3f3f3",
+		borderRadius : 5,
+		height : 200,
+		width : 150,
+		top : 185,
+		right : 5
+	});
+
+	var mRating = Ti.UI.createLabel({
+		title : "Rating",
+		text : item.properties.rating,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		backgroundColor : "#f3f3f3",
+		top : 5,
+		left : 5
+	});
+
+	var score10 = Ti.UI.createLabel({
+		text : item.properties.score,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		top : 50,
+		left : 5
+	});
+
+	var releaseDate = Ti.UI.createLabel({
+		text : item.properties.release,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		bottom : 5,
+		left : 5
+	});
+
+	var studioMake = Ti.UI.createLabel({
+		text : item.properties.studio,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		bottom : 50,
+		left : 5
+	});
+
+	var synopsisView = Ti.UI.createView({
+		backgroundColor : "#f3f3f3",
+		borderRadius : 5,
+		height : 150,
+		width : Ti.UI.setWidth,
+		top : 390,
+		right : 5,
+		left : 5
+	});
+
+	var synopsisInfo = Ti.UI.createLabel({
+		text : item.properties.synopsis,
+		font : {
+			fontSize : 12,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		height : 'auto',
+		width : 'auto'
+
+	});
+
+	synopsisView.add(synopsisInfo);
+	infoView.add(mRating, score10, releaseDate, studioMake);
+	movieWin.add(infoView, posterImage, bannerImage, synopsisView);
+	cWindow.nav.openWindow(movieWin, {animate : true});
+});
+// Movie Info/Pics End
+//List View End
+
+
+//Sample View
+
+var spidyPic = Ti.UI.createImageView({
+	image: 'banner/spider-man-swinging.jpg',
+	width: Ti.UI.setWidth,
+	height: 170,
+	bottom: 0,
+	backgroundColor:"#fff",
+});
+
+//Main Code
+listSection.setItems(theMovie);
+movieListView.sections = [listSection];
+movieScrollView.add(movieListView);
+cWindow.add(movieScrollView, spidyPic); 
+cWindow.nav.openWindow(loadingWin, {animate: true});

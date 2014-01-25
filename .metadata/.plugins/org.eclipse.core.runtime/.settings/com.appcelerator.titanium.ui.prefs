@@ -1,5 +1,8 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1390459145671
+LAST_LAUNCH_TIMESTAMP=1390599837385
 eclipse.preferences.version=1
+iOS\ build\ and\ deploy\:ConsoleLogLevel=Debug
+miu_jsonproject\:ConsoleLogLevel=Debug
 miu_jsonproject\:launchMode=run
 miu_jsonproject\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch 64-bit)
+preference.studio.perspective.version=103

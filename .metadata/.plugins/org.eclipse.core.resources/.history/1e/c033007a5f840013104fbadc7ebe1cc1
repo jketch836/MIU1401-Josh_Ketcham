@@ -1,0 +1,92 @@
+Ti.UI.setBackgroundColor('white');
+
+var cWindow = Ti.UI.currentWindow;
+
+
+Ti.include('movie_json1.js');
+
+
+	var scrollView = Ti.UI.createScrollView ({
+		layout: 'vertical',
+		showHorizontalScrollIndicator: true,
+		showVerticalScrollIndicator: true
+	});
+	
+	var bannerImage = Ti.UI.createImageView ({
+		image: movieEvent.source.bannerPic,
+		height: 175,
+		width: Ti.UI.setwidth, 
+		top: 5
+	});
+	
+	var posterImage = Ti.UI.createImageView ({
+		image: movieEvent.source.moviePic,
+		height: 200,
+		width: 150, 
+		top: 185,
+		left: 5
+	});
+		
+	var infoView = Ti.UI.createView ({
+		backgroundColor: "#f3f3f3",
+		borderRadius: 5,
+		height: 200,
+		width: 150,
+		top: 185,
+		right: 5
+	});
+	
+	var mRating = Ti.UI.createLabel ({
+		title: "Rating",
+		text: movieEvent.source.rating,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		backgroundColor: "#f3f3f3",
+		top: 5,
+		left: 5
+	});	
+	
+	var score10 = Ti.UI.createLabel ({
+		text: movieEvent.source.score,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		top: 50,
+		left: 5
+	});	
+
+	var releaseDate = Ti.UI.createLabel ({
+		text: movieEvent.source.release,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		bottom: 5,
+		left: 5
+	});		
+
+	var studioMake = Ti.UI.createLabel ({
+		text: movieEvent.source.studio,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		bottom: 50,	
+		left: 5
+	});		
+	
+	var synopsisView = Ti.UI.createView ({
+		backgroundColor: "#f3f3f3",
+		borderRadius: 5,
+		height: 150,
+		width: Ti.UI.setWidth,
+		top: 390,
+		right: 5,
+		left:5
+	});
+
+	var synopsisInfo = Ti.UI.createLabel ({
+		text: movieEvent.source.synopsis,
+		font: {fontSize: 12, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		height: 'auto',
+		width: 'auto'
+		
+	});
+	
+	synopsisView.add(synopsisInfo);
+	infoView.add(mRating, score10, releaseDate, studioMake);
+	scrollView.add(synopsisView);
+	movieWin.add(infoView, posterImage, bannerImage, synopsisView);
+	cWindow.nav.openWindow(movieWin, scrollView, {animate: true});
+});

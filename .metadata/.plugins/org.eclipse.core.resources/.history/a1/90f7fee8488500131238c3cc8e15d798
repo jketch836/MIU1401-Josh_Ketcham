@@ -1,0 +1,153 @@
+
+var cWindow = Ti.UI.currentWindow;
+
+
+Ti.include('movie_json1.js');
+
+var theMovie = [];
+
+		for(var i = 0, j = movieData['Avenge'].movieRow.length; i<j; i++){
+			var movieRows = Ti.UI.createTableViewRow({
+				title: movieData['Avenge'].movieRow[i].title,
+				rating: movieData['Avenge'].movieRow[i].rating,
+				score: movieData['Avenge'].movieRow[i].score,
+				moviePic: movieData['Avenge'].movieRow[i].moviePic,
+				bannerPic: movieData['Avenge'].movieRow[i].bannerPic,
+				studio: movieData['Avenge'].movieRow[i].studio, 
+				release: movieData['Avenge'].movieRow[i].release,
+				synopsis: movieData['Avenge'].movieRow[i].synopsis,
+				overall: movieData['Avenge'].movieRow[i].overall, 
+				name: movieData['Avenge'].movieRow[i].name,
+				news: movieData['Avenge'].movieRow[i].news,
+				date: movieData['Avenge'].movieRow[i].date,
+				review:	movieData['Avenge'].movieRow[i].review,										
+				font: {fontSize: 12, fontFamily: "Arial"}
+			});
+		theMovie.push(movieRows);
+
+
+	var bannerImage = Ti.UI.createImageView ({
+		image: bannerPic,
+		height: 150,
+		width: Ti.UI.setwidth, 
+		top: 5
+	});
+	
+	var posterImage = Ti.UI.createImageView ({
+		image: moviePic,
+		height: 150,
+		width: 100, 
+		top: 170,
+		left: 25
+	});
+		
+	var infoView = Ti.UI.createView ({
+		backgroundColor: "#f3f3f3",
+		borderRadius: 5,
+		height: 150,
+		width: 150, 
+		top: 170,
+		right: 25
+	});
+	
+	var mRating = Ti.UI.createLabel ({
+		title: "Rating",
+		text: rating,
+		font: {fontSize: 10, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		backgroundColor: "#f3f3f3",
+		top: 10,
+		left: 5
+	});	
+	
+	var score10 = Ti.UI.createLabel ({
+		text: score,
+		font: {fontSize: 10, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		top: 30,
+		left: 5
+	});	
+
+	var releaseDate = Ti.UI.createLabel ({
+		text: release,
+		font: {fontSize: 10, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		top: 50,
+		left: 5
+	});		
+
+	var studioMake = Ti.UI.createLabel ({
+		text: studio,
+		font: {fontSize: 10, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		top: 70,	
+		left: 5
+	});		
+	
+	var synopsisView = Ti.UI.createView ({
+		backgroundColor: "#f3f3f3",
+		borderRadius: 5,
+		height: 150,
+		width: Ti.UI.setWidth,
+		top: 390,
+		right: 5,
+		left:5
+	});
+
+	var synopsisInfo = Ti.UI.createLabel ({
+		text: synopsis,
+		font: {fontSize: 12, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		height: 'auto',
+		width: 'auto'
+	});
+	
+	var reviewView = Ti.UI.createView ({
+		backgroundColor: "#f3f3f3",
+		borderRadius: 5,
+		height: 200,
+		width: 150,
+		top: 185,
+		right: 5
+	});
+	
+	var overallLabel = Ti.UI.createLabel ({
+		title: "Rating",
+		text: movieEvent.source.overall,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		backgroundColor: "#f3f3f3",
+		top: 5,
+		left: 5
+	});	
+	
+	var nameLabel = Ti.UI.createLabel ({
+		text: movieEvent.source.name,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		top: 50,
+		left: 5
+	});	
+
+	var newsLabel = Ti.UI.createLabel ({
+		text: movieEvent.source.news,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		bottom: 5,
+		left: 5
+	});		
+
+	var dateLabel = Ti.UI.createLabel ({
+		text: movieEvent.source.date,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		bottom: 50,	
+		left: 5
+	});		
+	
+	var reviewLabel = Ti.UI.createLabel ({
+		text: movieEvent.source.review,
+		font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold", fontColor: "#000"},
+		bottom: 50,	
+		left: 5
+	});		
+//	reviewView.add(overallLabel, nameLabel, newsLabel, dateLabel, reviewLabel);
+	synopsisView.add(synopsisInfo);
+	alert(releaseDate);
+	infoView.add(mRating, score10, releaseDate, studioMake);
+	movieWin.add(infoView, posterImage, bannerImage, synopsisView);
+	scrollView.add(movieWin);
+//	cWindow.nav.openWindow(movieWin, {animate: true});
+	cWindow.nav.openWindow(movieWin, scrollView, {animate: true});
+});

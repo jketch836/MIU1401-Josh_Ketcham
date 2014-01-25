@@ -6,35 +6,33 @@ var navWin1 = Ti.UI.iOS.createNavigationWindow({
 	window: cWindow
 });
 
+//Activity Indicator open/close window
+var loadingWin = Ti.UI.createWindow({
+  backgroundColor: "#fff"
+});
 
-// //Activity Indicator open/close window
-// var noPointWin = Ti.UI.createWindow({
-  // backgroundColor: "#fff"
-// });
-// 
-// //Activity Indicator start
-// var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
-// 
-// var theIndicator = Ti.UI.createActivityIndicator({
-	// color: 'black',
-	// font: {fontSize: 22, fontFamily: "AmericanTypewriter", fontWeight: "bold"},
-	// message: 'Showing House History....',
-	// style:style,
-	// center: 0,
-	// height:Ti.UI.SIZE,
-	// width:Ti.UI.SIZE
-// });
-// noPointWin.add(theIndicator);
-// 
-// noPointWin.addEventListener('open', function (e) {
-  // theIndicator.show();
-  // setTimeout(function(){
-    // e.source.close();
-    // theIndicator.hide();
-  // }, 4000);
-// });
-// //Activity Indicator end
+//Activity Indicator open start
+var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
 
+var anIndicator = Ti.UI.createActivityIndicator({
+	color: 'black',
+	font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
+	message: 'Loading Awesome Movie Categories....',
+	style:style,
+	center: 0,
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE
+});
+loadingWin.add(anIndicator);
+
+loadingWin.addEventListener('open', function (e) {
+  anIndicator.show();
+  setTimeout(function(){
+    e.source.close();
+    anIndicator.hide();
+  }, 4000);
+});
+//Activity Indicator open end
 
 
 //Window Views
@@ -52,7 +50,7 @@ var categoryView = Ti.UI.createView({
 		height:100,
 		width: Ti.UI.setWidth,
 		top:0,
-		color: "B29D9D",
+		color: "#B29D9D",
 		file: 'avenger_movie_info.js'
 	});
 	
@@ -107,7 +105,7 @@ var categoryView = Ti.UI.createView({
 		height:100,
 		width: Ti.UI.setWidth,
 		bottom: 0,
-		color: "B29D9D",
+		color: "#B29D9D",
 	});
 	
 	var otherLabel = Ti.UI.createLabel({
@@ -217,7 +215,7 @@ samplePic2.add(viewImage2, thexmenView);
 samplePic3.add(viewImage3, spidyView1);
 
 
-var samplePics = Ti.UI.createScrollableView({
+var menuPics = Ti.UI.createScrollableView({
 	width: Ti.UI.setWidth,
 	height: 'auto',
 	top: 320,
@@ -228,8 +226,8 @@ var samplePics = Ti.UI.createScrollableView({
 });
 
 
-
 //Main Code
 categoryView.add(avengerView, xmenView, otherView);
-cWindow.add(categoryView, samplePics);
+cWindow.add(categoryView, menuPics);
+cWindow.open(loadingWin, {animate: true});
 navWin1.open();

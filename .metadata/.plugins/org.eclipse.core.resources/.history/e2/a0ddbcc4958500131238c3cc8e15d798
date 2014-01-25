@@ -1,0 +1,480 @@
+Ti.UI.setBackgroundColor('grey');
+
+var cWindow = Ti.UI.currentWindow;
+
+
+//Activity Indicator open/close window
+var loadingWin = Ti.UI.createWindow({
+  backgroundColor: "#000"
+});
+
+//Activity Indicator open start
+var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
+
+var anIndicator = Ti.UI.createActivityIndicator({
+	color: 'black',
+	font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
+	message: 'Loading Avenger Movies....',
+	style:style,
+	center: 0,
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE
+});
+loadingWin.add(anIndicator);
+
+loadingWin.addEventListener('open', function (e) {
+  anIndicator.show();
+  setTimeout(function(){
+    e.source.close();
+    anIndicator.hide();
+  }, 4000);
+});
+//Activity Indicator open end
+
+
+Ti.include('movie_json1.js');
+
+
+//ScrollView
+	var movieScrollView = Titanium.UI.createScrollView({
+		layout: 'vertical',
+//		scrolltype: 'vertical',
+		height: Ti.Platform.platformHeight,
+		width: 320,
+	    top:0,
+	    showVerticalScrollIndicator:true,
+	    showHorizontalScrollIndicator:true
+	});
+
+moiveListTemplate = {
+	childTemplates:
+	[
+		{
+			type: "Ti.UI.ImageView",
+			bindId: 'moviePic',
+			properties:
+			{
+				width: 50,
+				height: 75,
+				left: 0,
+				top:0
+			}
+		},
+		{
+			type: "Ti.UI.Label",
+			bindId: 'title',
+			properties:
+			{
+				color: "black",
+				font: {fontSize: 18, fontFamily: "Arial", fontWeight: "bold"},
+				left: 60,
+				top: 0
+			}
+		},
+
+		{
+			type: "Ti.UI.Label",
+			bindId: 'release',
+			properties:
+			{
+				color: "grey",
+				font: {fontSize: 14, fontFamily: "Arial"},
+				left: 60,
+				top: 25
+			}
+		},
+		{
+			type: "Ti.UI.Label",
+			bindId: 'rating',
+			properties:
+			{
+				color: "grey",
+				font: {fontSize: 12, fontFamily: "Arial"},
+				right: 5,
+				top: 0
+			}
+		},
+		{
+			type: "Ti.UI.Label",
+			bindId: 'score',
+			properties:
+			{
+				color: "grey",
+				font: {fontSize: 12, fontFamily: "Arial"},
+				right: 5,
+				top: 25
+			}
+		},
+	],
+};
+
+	//Avengers Object Info
+var listSection = Ti.UI.createListSection();
+var movieListView = Ti.UI.createListView({	
+	top:0,
+	templates:{'defaultTemplate': moiveListTemplate},
+	defaultItemTemplate: 'defaultTemplate'
+	});
+
+
+var theMovie = [];
+
+for (var i=0, j=movieData['Avenge'].movieRow.length; i<j; i++){
+		title = movieData['Avenge'].movieRow[i].title;
+		rating = movieData['Avenge'].movieRow[i].rating;
+		score = movieData['Avenge'].movieRow[i].score;
+		moviePic = movieData['Avenge'].movieRow[i].moviePic;
+		bannerPic = movieData['Avenge'].movieRow[i].bannerPic;
+		studio = movieData['Avenge'].movieRow[i].studio;
+		release = movieData['Avenge'].movieRow[i].release;
+		synopsis = movieData['Avenge'].movieRow[i].synopsis;
+		overall = movieData['Avenge'].movieRow[i].overall;
+		name = movieData['Avenge'].movieRow[i].name;
+		news = movieData['Avenge'].movieRow[i].news;
+		date = movieData['Avenge'].movieRow[i].date;
+		review = movieData['Avenge'].movieRow[i].review;
+	theMovie.push
+	({
+			properties:
+			{
+				title: title,
+				rating: rating,
+				score: score,
+				moviePic: moviePic,
+				bannerPic: bannerPic,
+				studio: studio,
+				release: release,
+				synopsis: synopsis,
+				overall: overall,
+				name: name,
+				news: news,
+				date: date,
+				review: review,
+			},	
+				title:
+					{
+						text: title
+					},
+				rating:
+					{
+						text: rating
+					},
+				release:
+					{
+						text: release					
+					},
+				score:
+					{
+						text: score
+					},
+				moviePic:
+					{
+						image: moviePic
+					}
+
+		});
+};
+
+
+// Movie Info/Pics Start
+movieScrollView.addEventListener("itemclick", function(movieEvent) {
+	var item =  movieEvent.section.getItemAt(movieEvent.itemIndex);
+	var movieWin = Ti.UI.createWindow({
+		title : item.properties.title,
+		font : {
+			fontSize : 18,
+			fontFamily : "Helvetica"
+		},
+		backgroundColor : "#fff",
+		orientationModes: [ Titanium.UI.PORTRAIT ],
+		width: 320,
+		fullscreen: false
+	});
+
+	//ScrollView
+	var movieScrollView1 = Titanium.UI.createScrollView({
+		layout: 'vertical',
+//		scrolltype: 'vertical',
+		height: Ti.Platform.PlatformHeight,
+		width: 320,
+	    top:0,
+	    showVerticalScrollIndicator:true,
+	    showHorizontalScrollIndicator:true
+	});
+
+	var bannerImage = Ti.UI.createImageView({
+		image : item.properties.bannerPic,
+		height : 175,
+		width : 320,
+		top : 5,
+		left : 5
+	});
+
+	var posterImage = Ti.UI.createImageView({
+		image : item.properties.moviePic,
+		height : 200,
+		width : 150,
+		top : 0,
+		left : 5
+	});
+
+	var InfoView = Ti.UI.createView({
+		backgroundColor : "#f3f3f3",
+		borderRadius : 5,
+		height : 200,
+		width : 310,
+		top : 20,
+		left: 10,
+		right: 5
+	});
+
+	var mRating = Ti.UI.createLabel({
+		text : item.properties.rating,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		backgroundColor : "#f3f3f3",
+		top : 5,
+		left : 165
+	});
+
+	var score10 = Ti.UI.createLabel({
+		text : item.properties.score,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		top : 50,
+		left : 165
+	});
+
+	var releaseDate = Ti.UI.createLabel({
+		text : item.properties.release,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		bottom : 5,
+		left : 165
+	});
+
+	var studioMake = Ti.UI.createLabel({
+		text : item.properties.studio,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		bottom : 50,
+		left : 165
+	});
+
+	var synopsisView = Ti.UI.createView({
+		backgroundColor : "#f3f3f3",
+		borderRadius : 5,
+		height : 150,
+		width : 300,
+		top : 20,
+		right : 5,
+		left : 5
+	});
+
+	var synopsisInfo = Ti.UI.createLabel({
+		text : item.properties.synopsis,
+		font : {
+			fontSize : 12,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+	});
+
+
+	var reviewInfoView = Ti.UI.createView({
+		backgroundColor : "#f3f3f3",
+		borderRadius : 5,
+		height : 150,
+		width : 300,
+		top : 20,
+		right : 5,
+		left : 5
+	});
+
+	var overallLabel = Ti.UI.createLabel({
+		text : item.properties.overall,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		top : 5,
+		left : 165
+	});
+
+	var nameLabel = Ti.UI.createLabel({
+		text : item.properties.name,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		top : 50,
+		left : 165
+	});
+
+	var newsLabel = Ti.UI.createLabel({
+		text : item.properties.news,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		bottom : 5,
+		left : 165
+	});
+
+	var dateLabel = Ti.UI.createLabel({
+		text : item.properties.date,
+		font : {
+			fontSize : 14,
+			fontFamily : "Helvetica",
+			fontWeight : "bold",
+			fontColor : "#000"
+		},
+		bottom : 50,
+		left : 165
+	});
+	reviewInfoView.add(overallLabel, nameLabel, newsLabel, dateLabel);
+	synopsisView.add(synopsisInfo);
+	InfoView.add(posterImage, mRating, releaseDate, score10, studioMake);
+	movieScrollView1.add(bannerImage, InfoView, synopsisView, reviewInfoView);
+	movieWin.add(movieScrollView1);
+	cWindow.nav.openWindow(movieWin, {animate : true});
+});
+// Movie Info/Pics End
+//Table End
+
+
+//Sample View
+var samplePic1 = Ti.UI.createView({
+	backgroundColor : "#000"
+});
+
+var samplePic2 = Ti.UI.createView({
+	backgroundColor : "#000"
+});
+
+var samplePic3 = Ti.UI.createView({
+	backgroundColor : "#000"
+});
+
+var viewImage1 = Ti.UI.createImageView({
+	image : "banner/Iron-Man.jpg",
+	height : Ti.UI.FIT,
+	width : Ti.UI.FIT
+});
+
+var viewImage2 = Ti.UI.createImageView({
+	image : "banner/Captain-america-wallpaper.jpg",
+	height : Ti.UI.FIT,
+	width : Ti.UI.FIT
+});
+
+var viewImage3 = Ti.UI.createImageView({
+	image : "banner/thor-2-poster-2.jpg",
+	height : Ti.UI.FIT,
+	width : Ti.UI.FIT
+});
+
+var ironView = Ti.UI.createView({
+	height : 20,
+	right : 70,
+	left : 70,
+	borderRadius : 5,
+	bottom : 0,
+	opacity : .8,
+	backgroundColor : '#fff'
+});
+
+var ironLabel = Ti.UI.createLabel({
+	text : 'Iron Man (2008)',
+	font : {
+		fontSize : 18,
+		fontFamily : "Helvetica",
+		fontWeight : "bold"
+	}
+});
+ironView.add(ironLabel);
+
+var CAView = Ti.UI.createView({
+	height : 20,
+	right : 40,
+	left : 40,
+	borderRadius : 5,
+	bottom : 0,
+	opacity : .8,
+	backgroundColor : '#fff'
+});
+
+var CALabel = Ti.UI.createLabel({
+	text : 'Captain America (2011)',
+	font : {
+		fontSize : 18,
+		fontFamily : "Helvetica",
+		fontWeight : "bold"
+	}
+});
+CAView.add(CALabel);
+
+var thor2View = Ti.UI.createView({
+	height : 20,
+	right : 10,
+	left : 10,
+	borderRadius : 5,
+	bottom : 0,
+	opacity : .8,
+	backgroundColor : '#fff'
+});
+
+var thor2Label = Ti.UI.createLabel({
+	text : 'Thor: The Dark World (2013)',
+	font : {
+		fontSize : 18,
+		fontFamily : "Helvetica",
+		fontWeight : "bold"
+	}
+});
+thor2View.add(thor2Label);
+
+samplePic1.add(viewImage1, ironView);
+samplePic2.add(viewImage2, CAView);
+samplePic3.add(viewImage3, thor2View);
+
+var avengePics = Ti.UI.createScrollableView({
+	width : Ti.UI.setWidth,
+	height : 153,
+	bottom : 0,
+	backgroundColor : "#fff",
+	views : [samplePic1, samplePic2, samplePic3],
+	showPagingControl : true,
+	pagingControlColor : "#"
+});
+
+
+//Main Code
+listSection.setItems(theMovie);
+movieListView.sections = [listSection];
+movieScrollView.add(movieListView);
+cWindow.add(movieScrollView, avengePics); 
+cWindow.nav.openWindow(loadingWin, {animate: true});
