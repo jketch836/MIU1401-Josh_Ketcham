@@ -403,7 +403,7 @@ movieScrollView.addEventListener("itemclick", function(movieEvent) {
 	});	
 
 	var tomatoLabel = Ti.UI.createLabel({
-		text : "* Review information and poster found on rottentomatos.com",
+		text : "* Review information and RT logo found on rottentomatos.com",
 		font : {
 			fontSize : 10,
 			fontFamily : "Helvetica",

@@ -13,7 +13,7 @@ var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
 
 var anIndicator = Ti.UI.createActivityIndicator({
 	color: 'black',
-	font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
+	font: {fontSize: 14, fontFamily: "Helvetica", fontWeight: "bold"},
 	message: 'Loading Other Awesome Marvel Movie....',
 	style:style,
 	center: 0,
@@ -402,7 +402,7 @@ movieScrollView.addEventListener("itemclick", function(movieEvent) {
 	});	
 
 	var tomatoLabel = Ti.UI.createLabel({
-		text : "* Review information and poster found on rottentomatos.com",
+		text : "* Review information and RT logo found on rottentomatos.com",
 		font : {
 			fontSize : 10,
 			fontFamily : "Helvetica",
