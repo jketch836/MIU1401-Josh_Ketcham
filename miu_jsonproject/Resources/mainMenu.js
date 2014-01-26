@@ -6,61 +6,53 @@ var navWin1 = Ti.UI.iOS.createNavigationWindow({
 	window: cWindow
 });
 
-//Activity Indicator open/close window
-var loadingWin = Ti.UI.createWindow({
-  backgroundColor: "#fff"
-});
-
-//Activity Indicator open start
-var style = Ti.UI.iPhone.ActivityIndicatorStyle.DARK;
-
-var anIndicator = Ti.UI.createActivityIndicator({
-	color: 'black',
-	font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
-	message: 'Loading Awesome Movie Categories....',
-	style:style,
-	center: 0,
-	height:Ti.UI.SIZE,
-	width:Ti.UI.SIZE
-});
-loadingWin.add(anIndicator);
-
-loadingWin.addEventListener('open', function (e) {
-  anIndicator.show();
-  setTimeout(function(){
-    e.source.close();
-    anIndicator.hide();
-  }, 4000);
-});
-//Activity Indicator open end
-
 
 //Window Views
 var categoryView = Ti.UI.createView({
 	height: 320,
 	top:0,
-	width: Ti.UI.setWidth,
+	width: 320,
 	backgroundColor: '#fff'
 });
 
-
+// var searchBar = Titanium.UI.createSearchBar({
+    // barColor:'#333',
+    // opacity: .6, 
+    // showCancel:true,
+    // height:40,
+    // top:0,
+// });
+// 
+// searchBar.addEventListener('click', function(e){
+     // movieListView.searchText = e.value;
+     // Ti.API.info('e.value: ' + e.value);
+     // Ti.API.info('listview: ' + $.movieListView.searchText);
+     
+     
 //Categories
 	var avengerView = Ti.UI.createView({
-		borderRadius: 1,
-		height:100,
-		width: Ti.UI.setWidth,
+		borderRadius: 5,
+		height: 100,
+		width: 320,
 		top:0,
-		color: "#B29D9D",
+		left: 0,
+		backgroundColor: "#2001FF",
 		file: 'avenger_movie_info.js'
 	});
-	
 	var avengerLabel = Ti.UI.createLabel({
 		text: "Avenger Movies",
-		font: {fontSize: 16, fontFamily: "Helvetica", fontWeight: "bold"},
-		left: 40,
+		font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
+		left: 20,
 		color: "#000"
 	});
-	avengerView.add(avengerLabel);
+	var avengerImage = Ti.UI.createImageView({
+		image : 'pics/AVENGERS_LOGO_VERSION_1.png',
+		height : 90,
+		width : 90,
+		right: 25
+	});
+	avengerView.add(avengerLabel, avengerImage);
+	
 	
 	avengerView.addEventListener("click", function(){
 		var moWindow = Ti.UI.createWindow({
@@ -73,22 +65,28 @@ var categoryView = Ti.UI.createView({
 	
 	
 	var xmenView = Ti.UI.createView({
-		borderRadius: 1,
-		height:100,
-		width: Ti.UI.setWidth,
+		borderRadius: 5,
+		height: 100,
+		width: 320,
 		center: 0,
-		color: "#000",
+		backgroundColor: "#333",
 		file: 'xmen_movie_info.js'
 	});
 	
 	var xmenLabel = Ti.UI.createLabel({
 		text: "X-Men Movies",
-		font: {fontSize: 16, fontFamily: "Helvetica", fontWeight: "bold"},
-		left: 40,
+		font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
+		left: 20,
 		color: "#000"
 
 	});
-	xmenView.add(xmenLabel);
+	var xmenImage = Ti.UI.createImageView({
+		image : 'pics/239px-X_symbol_from_X-Men_logo.svg.png',
+		height : 90,
+		width : 90,
+		right: 25
+	});
+	xmenView.add(xmenLabel, xmenImage);
 	
 	xmenView.addEventListener("click", function(){
 		var moWindow = Ti.UI.createWindow({
@@ -101,20 +99,26 @@ var categoryView = Ti.UI.createView({
 	
 	
 	var otherView = Ti.UI.createView({
-		borderRadius: 1,
-		height:100,
-		width: Ti.UI.setWidth,
+		borderRadius: 5,
+		height: 100,
+		width: 320,
 		bottom: 0,
-		color: "#B29D9D",
+		backgroundColor: "#68051D",
 	});
 	
 	var otherLabel = Ti.UI.createLabel({
 		text: "Other Marvel Movies",
-		font: {fontSize: 16, fontFamily: "Helvetica", fontWeight: "bold"},
-		left: 40,
+		font: {fontSize: 18, fontFamily: "Helvetica", fontWeight: "bold"},
+		left: 20,
 		color: "#000"
 	});
-	otherView.add(otherLabel);
+	var otherImage = Ti.UI.createImageView({
+		image : 'pics/spiderman_logo_by_navdbest-d5iog9h.png',
+		height : 90,
+		width : 90,
+		right: 25
+	});
+	otherView.add(otherLabel, otherImage);
 
 	otherView.addEventListener("click", function(){
 		var moWindow = Ti.UI.createWindow({
@@ -216,7 +220,7 @@ samplePic3.add(viewImage3, spidyView1);
 
 
 var menuPics = Ti.UI.createScrollableView({
-	width: Ti.UI.setWidth,
+	width: 320,
 	height: 'auto',
 	top: 320,
 	backgroundColor:"#fff",
@@ -229,5 +233,11 @@ var menuPics = Ti.UI.createScrollableView({
 //Main Code
 categoryView.add(avengerView, xmenView, otherView);
 cWindow.add(categoryView, menuPics);
-cWindow.open(loadingWin, {animate: true});
 navWin1.open();
+
+
+
+
+//Avengers logo found at http://2.bp.blogspot.com/-QXYmIYqx1OY/UPSmJnC1DBI/AAAAAAAAAEI/k-vqX3lfThI/s1600/AVENGERS%2BLOGO%2BVERSION%2B1.png
+//X-Men Logo found at http://upload.wikimedia.org/wikipedia/commons/thumb/2/28/X_symbol_from_X-Men_logo.svg/239px-X_symbol_from_X-Men_logo.svg.png
+//Spiderman Logo found at http://4.bp.blogspot.com/-VRjZQA7dVw0/Us-EupqcduI/AAAAAAAAEy0/otUiWE4TxjI/s1600/spiderman_logo_by_navdbest-d5iog9h.png

@@ -37,7 +37,7 @@ Ti.include('movie_json1.js');
 	var movieScrollView = Titanium.UI.createScrollView({
 		layout: 'vertical',
 //		scrolltype: 'vertical',
-		height: Ti.Platform.platformHeight,
+		height: 336,
 		width: 320,
 	    top:0,
 	    showVerticalScrollIndicator:true,
@@ -45,6 +45,10 @@ Ti.include('movie_json1.js');
 	});
 
 moiveListTemplate = {
+	properties:
+		{
+		height: 75	
+		},
 	childTemplates:
 	[
 		{
@@ -69,7 +73,6 @@ moiveListTemplate = {
 				top: 0
 			}
 		},
-
 		{
 			type: "Ti.UI.Label",
 			bindId: 'release',
@@ -78,7 +81,7 @@ moiveListTemplate = {
 				color: "grey",
 				font: {fontSize: 14, fontFamily: "Arial"},
 				left: 60,
-				top: 25
+				top: 40
 			}
 		},
 		{
@@ -89,7 +92,7 @@ moiveListTemplate = {
 				color: "grey",
 				font: {fontSize: 12, fontFamily: "Arial"},
 				right: 5,
-				top: 0
+				top: 5
 			}
 		},
 		{
@@ -100,11 +103,12 @@ moiveListTemplate = {
 				color: "grey",
 				font: {fontSize: 12, fontFamily: "Arial"},
 				right: 5,
-				top: 25
+				top: 40
 			}
 		},
 	],
 };
+
 
 	//Avengers Object Info
 var listSection = Ti.UI.createListSection();
@@ -296,7 +300,7 @@ movieScrollView.addEventListener("itemclick", function(movieEvent) {
 	});
 
 	var tomatoImage = Ti.UI.createImageView({
-		image : 'Rotten_Tomatoes_logo.jpg',
+		image : 'pics/Rotten_Tomatoes_logo.jpg',
 		height : 50,
 		width : 150,
 		top : 0,
@@ -418,6 +422,18 @@ movieScrollView.addEventListener("itemclick", function(movieEvent) {
 //Table End
 
 
+// var searchBar = Titanium.UI.createSearchBar({
+    // barColor:'#333',
+    // opacity: .6, 
+    // showCancel:true,
+    // height:40,
+    // top:0,
+// });
+// 
+// searchBar.addEventListener('click', function(e){
+     // movieListView.searchText = e.value;
+     // Ti.API.info('e.value: ' + e.value);
+     // Ti.API.info('listview: ' + $.movieListView.searchText);
 
 
 //Sample View

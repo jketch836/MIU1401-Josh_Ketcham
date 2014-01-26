@@ -1,0 +1,35 @@
+//ButtonBar start
+var bar1 = Titanium.UI.createButtonBar({
+    labels:['Avengers', 'Lannister'],
+    backgroundColor:'#f3f3f3',
+    top:10,
+    style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
+    height:25,
+    width:175
+});
+
+bar1.addEventListener('click', function(kingdom){
+	//House Stark
+	if(kingdom.index === 0){
+		var starkWin = Ti.UI.createWindow({
+			title: 'House Stark',
+			font: {fontSize: 18, fontFamily: "AmericanTypewriter"},
+			backgroundImage: "new/stark_crest.png",
+			backgroundColor: "#fff"
+		});	
+		
+		
+		
+	}else if(kingdom.index === 1){
+		
+	//House Lannister
+	var lannWin = Ti.UI.createWindow({
+		title: 'House Lannister',
+		font: {fontSize: 18, fontFamily: "AmericanTypewriter"},
+		backgroundImage: "new/lannister_crest.png",
+		backgroundColor: "#fff"
+	});	
+	
+};
+});
+//ButtonBar End
