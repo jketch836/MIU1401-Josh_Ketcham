@@ -1,0 +1,34 @@
+//Window
+var cWin = Ti.UI.currentWindow;
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: cWin
+});
+
+
+var signOffButton = Ti.UI.createButton({
+	title: "Sign Off",
+	style: Ti.UI.iPhone.SystemButtonStyle.DONE,
+	file:'app.js'
+});
+// signOffButton.addEventListener('click', function(){
+			// url:'app.js';
+	// });
+cWin.setRightNavButton(signOffButton);
+
+
+var cmFeild = Titanium.UI.createTextField({
+    top:240,
+    right:40,
+    width:40,
+    height:40,
+    color:'#000',    
+    hintText:'CM',
+    font:{fontWeight:'bold',fontSize:15, fontFamily:'Helvetica', textAlign: 'center'},
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+var cm = Ti.UI.convertUnits.UNIT_CM;
+
+//Main Code
+cWin.add(cmFeild, cm);
+navWin.open();

@@ -1,0 +1,82 @@
+//Window
+var cWin = Ti.UI.currentWindow;
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: cWin
+});
+
+
+var signOffButton = Ti.UI.createButton({
+	title: "Sign Off",
+	style: Ti.UI.iPhone.SystemButtonStyle.DONE,
+	file:'app.js'
+});
+// signOffButton.addEventListener('click', function(){
+			// url:'app.js';
+	// });
+cWin.setRightNavButton(signOffButton);
+
+
+var fromLabel = Ti.UI.createLabel({
+	text: 'From:',
+	font:{fontSize:16, fontFamily:'Helvetica'}
+});
+
+var toLabel = Ti.UI.createLabel({
+	text: 'To:',
+	font:{fontSize:16, fontFamily:'Helvetica'}
+});
+
+var mmFeild = Titanium.UI.createTextField({
+    top:240,
+    right:40,
+    width:40,
+    height:40,
+    color:'#000',    
+    hintText:'MM',
+    font:{fontWeight:'bold',fontSize:14, fontFamily:'Helvetica', textAlign: 'center'},
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+
+var cmFeild = Titanium.UI.createTextField({
+    top:240,
+    right:40,
+    width:40,
+    height:40,
+    color:'#000',    
+    hintText:'CM',
+    font:{fontWeight:'bold',fontSize:14, fontFamily:'Helvetica', textAlign: 'center'},
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+
+var inFeild = Titanium.UI.createTextField({
+    top:240,
+    right:40,
+    width:40,
+    height:40,
+    color:'#000',    
+    hintText:'IN',
+    font:{fontWeight:'bold',fontSize:14, fontFamily:'Helvetica', textAlign: 'center'},
+    borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+});
+
+
+var mmTOcm = Ti.UI.convertUnits(mmFeild, Ti.UI.UNIT_CM);
+
+var cmTOin = Ti.UI.convertUnits(cmFeild, Ti.UI.UNIT_IN);
+
+var mmTOin = Ti.UI.convertUnits(mmFeild, Ti.UI.UNIT_IN);
+
+var inTOcm = Ti.UI.convertUnits(inFeild, Ti.UI.UNIT_CM);
+
+var inTOmm = Ti.UI.convertUnits(inFeild, Ti.UI.UNIT_MM);
+
+var cmTOmm = Ti.UI.convertUnits(cmFeild, Ti.UI.UNIT_MM);
+
+
+
+//Main Code
+cWin.add(fromLabel, toLabel, mmFeild, cmFeild, mmTOcm, cmTOin, mmTOin, inTOcm, inTOmm, cmTOmm);
+navWin.open();
