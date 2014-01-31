@@ -1,38 +1,41 @@
-Logger started at: Wednesday, January 29, 2014 5:43:23 PM EST
+Logger started at: Wednesday, January 29, 2014 10:24:57 PM EST
 Component: com.appcelerator.titanium.ios.core
 Version: 1.0.0.1387331057
-[43:23.46] Sent: >21*1391035403045*version<
-[43:23.46] Recv: >1391035403045*2*3.2.0.GA<
-[43:23.47] Sent: >45*1391035403046*option*stepFiltersEnabled*false<
-[43:23.48] Recv: >1391035403046<
-[43:23.48] Sent: >36*1391035403047*option*monitorXHR*true<
-[43:23.48] Recv: >1391035403047<
-[43:23.48] Sent: >45*1391035403048*option*suspendOnFirstLine*false<
-[43:23.49] Recv: >1391035403048<
-[43:23.49] Sent: >46*1391035403049*option*suspendOnExceptions*false<
-[43:23.49] Recv: >1391035403049<
-[43:23.50] Sent: >41*1391035403050*option*suspendOnErrors*true<
-[43:23.50] Recv: >1391035403050<
-[43:23.50] Sent: >43*1391035403051*option*suspendOnKeywords*true<
-[43:23.51] Recv: >1391035403051<
-[43:23.51] Sent: >45*1391035403052*option*bypassConstructors*false<
-[43:23.51] Recv: >1391035403052<
-[43:23.51] Sent: >45*1391035403053*option*stepFiltersEnabled*false<
-[43:23.52] Recv: >1391035403053<
-[43:23.52] Sent: >30*1391035403054*detailFormatters<
-[43:23.52] Recv: >1391035403054<
-[43:23.53] Sent: >20*1391035403055*enable<
-[43:23.53] Recv: >1391035403055<
-[43:23.55] Recv: >threads*created*0*kroll$1<
-[43:23.56] Recv: >log*out*[DEBUG] Analytics is enabled = YES<
-[43:23.56] Recv: >log*out*[DEBUG] Loading: /Users/jketch/Library/Application Support/iPhone Simulator/7.0.3-64/Applications/BA84A754-3AC6-4B6B-BD43-21B08D964D65/miu_utilityproject.app/app.js, Resource: app_js<
-[43:23.57] Recv: >scripts*created*327211392|app:/app.js||1|63<
-[43:23.57] Recv: >resumed*0*started<
-[43:23.59] Recv: >log*out*[DEBUG] Loading: /Users/jketch/Library/Application Support/iPhone Simulator/7.0.3-64/Applications/BA84A754-3AC6-4B6B-BD43-21B08D964D65/miu_utilityproject.app/_app_props_.json, Resource: _app_props__json<
-[43:23.147] Recv: >log*out*[DEBUG] Application booted in 130.271971 ms<
-[43:24.488] Recv: >log*out*[WARN] OPEN ABORTED. _handleOpen returned NO<
-[43:24.488] Recv: >threads*created*1*kroll$2<
-[43:24.488] Recv: >log*out*[DEBUG] Loading: /Users/jketch/Library/Application Support/iPhone Simulator/7.0.3-64/Applications/BA84A754-3AC6-4B6B-BD43-21B08D964D65/miu_utilityproject.app/Main_menu.js, Resource: Main_menu_js<
-[43:24.489] Recv: >scripts*created*327471744|app:/Main_menu.js||1|78<
-[43:24.489] Recv: >resumed*1*started<
+[24:57.593] Sent: >21*1391052297589*version<
+[24:57.595] Recv: >1391052297589*2*3.2.0.GA<
+[24:57.596] Sent: >36*1391052297590*option*monitorXHR*true<
+[24:57.597] Recv: >1391052297590<
+[24:57.597] Sent: >45*1391052297591*option*stepFiltersEnabled*false<
+[24:57.598] Recv: >1391052297591<
+[24:57.598] Sent: >45*1391052297592*option*suspendOnFirstLine*false<
+[24:57.599] Recv: >1391052297592<
+[24:57.599] Sent: >46*1391052297593*option*suspendOnExceptions*false<
+[24:57.600] Recv: >1391052297593<
+[24:57.600] Sent: >41*1391052297594*option*suspendOnErrors*true<
+[24:57.601] Recv: >1391052297594<
+[24:57.601] Sent: >43*1391052297595*option*suspendOnKeywords*true<
+[24:57.602] Recv: >1391052297595<
+[24:57.602] Sent: >45*1391052297596*option*bypassConstructors*false<
+[24:57.603] Recv: >1391052297596<
+[24:57.603] Sent: >45*1391052297597*option*stepFiltersEnabled*false<
+[24:57.603] Recv: >1391052297597<
+[24:57.603] Sent: >30*1391052297598*detailFormatters<
+[24:57.604] Recv: >1391052297598<
+[24:57.604] Sent: >20*1391052297599*enable<
+[24:57.605] Recv: >1391052297599<
+[24:57.607] Recv: >threads*created*0*kroll$1<
+[24:57.608] Recv: >log*out*[DEBUG] Analytics is enabled = YES<
+[24:57.612] Recv: >log*out*[DEBUG] Loading: /Users/jketch/Library/Application Support/iPhone Simulator/7.0.3-64/Applications/BA84A754-3AC6-4B6B-BD43-21B08D964D65/miu_utilityproject.app/app.js, Resource: app_js<
+[24:57.615] Recv: >scripts*created*319056256|app:/app.js||1|76<
+[24:57.615] Recv: >resumed*0*started<
+[24:57.617] Recv: >log*out*[DEBUG] Loading: /Users/jketch/Library/Application Support/iPhone Simulator/7.0.3-64/Applications/BA84A754-3AC6-4B6B-BD43-21B08D964D65/miu_utilityproject.app/_app_props_.json, Resource: _app_props__json<
+[24:57.696] Recv: >log*out*[DEBUG] Application booted in 139.392972 ms<
+[24:59.53] Recv: >log*out*[WARN] OPEN ABORTED. _handleOpen returned NO<
+[24:59.54] Recv: >threads*created*1*kroll$2<
+[24:59.54] Recv: >log*out*[DEBUG] Loading: /Users/jketch/Library/Application Support/iPhone Simulator/7.0.3-64/Applications/BA84A754-3AC6-4B6B-BD43-21B08D964D65/miu_utilityproject.app/Main_menu.js, Resource: Main_menu_js<
+[24:59.55] Recv: >scripts*created*319316608|app:/Main_menu.js||1|187<
+[24:59.55] Recv: >resumed*1*started<
+[25:38.356] Recv: >suspended*1*exception*app:/Main_menu.js*99<
+[25:38.356] Sent: >22*1391052297600*frames*1<
+[25:38.357] Recv: >1391052297600*0|||app:/Main_menu.js|99|false|0|0<
 ----------End of file----------

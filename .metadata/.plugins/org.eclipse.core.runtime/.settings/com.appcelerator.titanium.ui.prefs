@@ -1,5 +1,5 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1391034182405
+LAST_LAUNCH_TIMESTAMP=1391130374998
 eclipse.preferences.version=1
 extra\:launchMode=run
 extra\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
@@ -7,7 +7,7 @@ iOS\ build\ and\ deploy\:ConsoleLogLevel=Debug
 miu_jsonproject\:ConsoleLogLevel=Debug
 miu_jsonproject\:launchMode=run
 miu_jsonproject\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
-miu_utilityproject\:launchMode=debug
+miu_utilityproject\:launchMode=run
 miu_utilityproject\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch 64-bit)
 preference.studio.perspective.version=103
 test\:launchMode=debug

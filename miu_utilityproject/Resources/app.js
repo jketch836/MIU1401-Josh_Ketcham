@@ -1,6 +1,5 @@
 Ti.UI.setBackgroundColor ('white');
 
-
 //Landing Page
 var mWindow = Ti.UI.createWindow({
 	title: "Login page"
@@ -12,7 +11,7 @@ var image = Ti.UI.createImageView({
 	top: 70
 });
 
- 
+
 var theUsername = Titanium.UI.createTextField({
     top:240,
     left:10,    
@@ -20,10 +19,11 @@ var theUsername = Titanium.UI.createTextField({
     width:300,
     color:'#000',    
     hintText:'Username',
+    value: '',
     font:{fontWeight:'bold',fontSize:15, fontFamily:'Helvetica'},
     borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 });
- 
+
 var thePassword = Titanium.UI.createTextField({
     top:290,
     left:10,
@@ -31,27 +31,43 @@ var thePassword = Titanium.UI.createTextField({
     width:300,
     color:'#000',
     hintText:'Password',
+    // passwordMask: true,
+    value: '',
     font:{fontWeight:'bold',fontSize:15, fontFamily:'Helvetica'},
     borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 });
- 
-var signInButton = Titanium.UI.createButton({
+
+var signInButton = Ti.UI.createButton({
     title:'Sign In',
     top:340,
     width:90,
     height:35,
     borderRadius:5,
-   	font:{fontWeight:'bold',fontSize:14, fontFamily:'Helvetica'},
+   	font:{fontWeight:'bold',fontSize:16, fontFamily:'Helvetica'},
    	file: 'Main_menu.js'
 });
  
 signInButton.addEventListener('click', function(){
-	var mainWindow = Titanium.UI.createWindow({  
-		title:'Main Menu',
-		backgroundColor:'#fff',
-		url:'Main_menu.js'
-	});
-	mainWindow.open(mainWindow, {animate: true});
+	// if (theUsername.value != '' & thePassword.value != ''){
+		///// var alertDialog = Ti.UI.createAlertDialog({
+        	///// title: 'Login Successful',
+        	///// buttonNames: ['OK']
+   		///// });
+   		var mainWindow = Titanium.UI.createWindow({  
+			title:'Main Menu',
+			backgroundColor:'#fff',
+			url:'Main_menu.js'
+		});
+		mainWindow.open(mainWindow, {animate: true});
+		///// alertDialog.show();
+	// } else {
+		// var alertDialogPTA = Ti.UI.createAlertDialog({
+    		// title: 'Please try agin',
+        	// buttonNames: ['OK']
+    	// });	
+    	// alertDialogPTA.show();
+	// }
+	// console.log(e.source.value);
 });
 
 
@@ -59,4 +75,3 @@ signInButton.addEventListener('click', function(){
 //Main Code
 mWindow.add(image, theUsername, thePassword, signInButton);
 mWindow. open();
-

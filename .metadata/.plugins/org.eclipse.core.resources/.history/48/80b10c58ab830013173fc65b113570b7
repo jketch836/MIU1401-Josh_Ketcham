@@ -1,1 +1,0 @@
-var cWindow = Ti.UI.currentWindow;
