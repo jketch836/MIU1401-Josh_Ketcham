@@ -1,0 +1,44 @@
+
+//Window
+var cWin = Ti.UI.currentWindow;
+
+
+
+var aboutLabel = Titanium.UI.createLabel({
+	text: 'About This App',
+	font: {fontSize: 22, fontWeight: 'bold'},
+	color: '#fff',
+	center: 0,
+	top: 20
+});
+
+var aboutInfoLabel = Titanium.UI.createLabel({
+	text: '* This App was built ',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 50
+});
+
+var convertFromImage = Titanium.UI.createImageView({
+	image:'convertFromLabel.png',
+	height: 50,
+	width: 100,
+	center: 0,
+	top: 90
+});
+
+
+var aboutView = Titanium.UI.createView({
+    borderRadius: 5,
+    width: 310,
+    height: 500,
+    left: 5,
+    right: 5,
+	font: {fontSize: 20},
+	backgroundColor: '#333',
+});
+aboutView.add(aboutLabel, aboutInfoLabel);
+
+//Main Code
+cWin.add(aboutView);

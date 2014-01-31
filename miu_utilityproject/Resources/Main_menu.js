@@ -1,4 +1,3 @@
-
 //Window
 var cWin = Ti.UI.currentWindow;
 
@@ -23,49 +22,49 @@ cWin.setRightNavButton(signOffButton);
 //MILLIMETER TO CENTIMETER CONVERTER START
 // MM = CM Labels
 var milliLabel = Ti.UI.createLabel({
+    top: 10,
+    left: 25,
+    width: 100,
     color: '#000',
     text: 'Millimeters',
-    font: {fontSize: 18},
-    left: 25,
-    top: 10,
-    width: 100
+    font: {fontSize: 18}
 });
 
 var equalLabel1 = Ti.UI.createLabel({
+    top: 40,
+    left: 125,
 	color: '#000',
     text: '=',
-    font: {fontSize: 18},
-    left: 125,
-    top: 40
+    font: {fontSize: 18}
 });
 
 var centiLabel1 = Titanium.UI.createLabel({
-    color: '#000',
-    text: 'Centimeters',
-    font: {fontSize : 18},
-    textAlign: 'center',
     top: 10,
     width: 100,
-    right: 75
+    right: 75,    
+    color: '#000',
+    text: 'Centimeters',
+    textAlign: 'center',
+    font: {fontSize : 18}
 });
 
 //Input text areas
 var milliInput = Ti.UI.createTextField({
-    borderWidth: 2,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderColor: '#000',
-    borderRadius: 3,
-    color: '#999',
-	hintText: '123',
-    font: {fontSize: 18,fontWeight : 'bold'},
-    keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD,
-    returnKeyType: Ti.UI.RETURNKEY_GO,
-    textAlign: 'center',
     top: 30,
     left: 20,
     width: 100,
-    height: 40
+    height: 40,
+    borderWidth: 2,
+    borderRadius: 3,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderColor: '#000',
+    color: '#999',
+	hintText: '123',
+    textAlign: 'center',
+    font: {fontSize: 18,fontWeight : 'bold'},    
+    keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD,
+    returnKeyType: Ti.UI.RETURNKEY_DEFAULT    
 });
 
 //Convert button
@@ -78,13 +77,13 @@ var milliCon = Ti.UI.createButton({
 //Output result
 var milliOutput = Titanium.UI.createLabel({
     borderWidth: 2,
+    borderRadius: 5,
     top: 30,
     width: 100,
     height: 40,
     right: 75,
     color: '#000',
     borderColor: '#000',
-    borderRadius: 5,
     font: {fontSize : 18},
     textAlign: 'center',
     text: ''
@@ -102,68 +101,68 @@ milliCon.addEventListener('click', function(a) {
 //CENTIMETER TO INCHES CONVERTER START
 // CM = IN Labels
 var centiLabel2 = Ti.UI.createLabel({
-    color: '#000',
-    text: 'Centimeters',
-    font: {fontSize: 18},
     left: 20,
     top: 100,
-    width: 100
+    width: 100,
+    color: '#000',
+    text: 'Centimeters',
+    font: {fontSize: 18}
 });
 
 var equalLabel2 = Ti.UI.createLabel({
+    top: 130,
+    left: 125,
 	color: '#000',
     text: '=',
-    font: {fontSize: 18},
-    left: 125,
-    top: 130
+    font: {fontSize: 18}
 });
 
 var inchLabel1 = Titanium.UI.createLabel({
-    color: '#000',
-    text: 'Inches',
-    font: {fontSize : 18},
-    textAlign: 'center',
     top: 100,
     width: 100,
-    right: 75
+    right: 75,
+    color: '#000',
+    text: 'Inches',
+    textAlign: 'center',
+    font: {fontSize : 18}
 });
 
 //Input text areas
 var centiInput = Ti.UI.createTextField({
-    borderWidth: 2,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderColor: '#000',
-    borderRadius: 3,
-    color: '#999',
-	hintText: '456',
-    font: {fontSize: 18,fontWeight : 'bold'},
-    keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD,
-    returnKeyType: Ti.UI.RETURNKEY_GO,
-    textAlign: 'center',
     top: milliInput.top + 90,
     left: 20,
     width: 100,
-    height: 40
+    height: 40,
+    borderWidth: 2,
+    borderRadius: 3,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderColor: '#000',
+    color: '#999',
+	hintText: '456',
+    font: {fontSize: 18,fontWeight : 'bold'},
+    textAlign: 'center',
+    keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD,
+    returnKeyType: Ti.UI.RETURNKEY_DEFAULT
 });
 
 //Convert button
 var centiCon = Ti.UI.createButton({
-    title : 'Convert',
-    top : 125,
-    right: 10 
+    top: 125,
+    right: 10, 
+    title: 'Convert'
 });
 
 //Output result
 var centiOutput = Titanium.UI.createLabel({
-    borderWidth: 2,
     top: milliOutput.top + 90,
     width: 100,
     height: 40,
     right: 75,
+    borderWidth: 2,
+    borderRadius: 5,
     color: '#000',
     borderColor: '#000',
-    borderRadius: 5,
     font: {fontSize : 18},
     textAlign: 'center',
     text: ''
@@ -181,68 +180,68 @@ centiCon.addEventListener('click', function(b) {
 //INCHES TO FEET CONVERTER START
 // IN = FT Labels
 var inchLabel2 = Ti.UI.createLabel({
+    top: milliInput.width + 90,
+    width: 100,
+    left: 50,
     color: '#000',
     text: 'Inch',
-    font: {fontSize: 18},
-    left: 50,
-    top: milliInput.width + 90,
-    width: 100
+    font: {fontSize: 18}
 });
 
 var equalLabel3 = Ti.UI.createLabel({
+    left: 125,
+    top: 220,
 	color: '#000',
     text: '=',
-    font: {fontSize: 18},
-    left: 125,
-    top: 220
+    font: {fontSize: 18}
 });
 
 var feetLabel1 = Titanium.UI.createLabel({
-    color: '#000',
-    text: 'Feet',
-    font: {fontSize : 18},
-    textAlign: 'center',
     top: milliInput.width + 90,
     width: 100,
-    right: 75
+    right: 75,
+    color: '#000',
+    text: 'Feet',
+    textAlign: 'center',    
+    font: {fontSize : 18}
 });
 
 //Input text areas
 var inchInput = Ti.UI.createTextField({
-    borderWidth: 2,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderColor: '#000',
-    borderRadius: 3,
-    color: '#999',
-	hintText: '789',
-    font: {fontSize: 18,fontWeight : 'bold'},
-    keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD,
-    returnKeyType: Ti.UI.RETURNKEY_GO,
-    textAlign: 'center',
     top: centiInput.top + 90,
     left: 20,
     width: 100,
-    height: 40
+    height: 40,
+    borderWidth: 2,
+    borderRadius: 3,    
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    borderColor: '#000',
+    color: '#999',
+	hintText: '789',
+	textAlign: 'center',
+    font: {fontSize: 18,fontWeight : 'bold'},
+    keyboardType: Ti.UI.KEYBOARD_NUMBER_PAD,
+    returnKeyType: Ti.UI.RETURNKEY_DEFAULT   
 });
 
 //Convert button
 var inchCon = Ti.UI.createButton({
-    title : 'Convert',
     top : 215,
-    right: 10 
+    right: 10,
+    title : 'Convert'
 });
 
 //Output result
 var inchOutput = Titanium.UI.createLabel({
-    borderWidth: 2,
     top: milliOutput.top + 180,
     width: 100,
     height: 40,
     right: 75,
+    borderWidth: 2,
+    borderRadius: 5,
     color: '#000',
     borderColor: '#000',
-    borderRadius: 5,
     font: {fontSize : 18},
     textAlign: 'center',
     text: ''
@@ -256,9 +255,9 @@ inchCon.addEventListener('click', function(c) {
 
 
 var instructions = Titanium.UI.createLabel({
+	left: 20,
 	text: 'Instructions',
-	font: {fontSize: 20, fontWeight: 'bold'},
-	left: 20
+	font: {fontSize: 20, fontWeight: 'bold'}
 });
 
 var arrow1 = Titanium.UI.createImageView({
@@ -268,12 +267,12 @@ var arrow1 = Titanium.UI.createImageView({
 });
 
 var instructionView = Titanium.UI.createView({
-    borderRadius: 5,
     bottom: 150,
     width: 300,
     height: 50,
     left: 10,
     right: 10,
+    borderRadius: 5,
 	font: {fontSize: 20},
 	backgroundColor: '#f0ad4e',
 	file: 'instructions.js'
@@ -281,19 +280,19 @@ var instructionView = Titanium.UI.createView({
 instructionView.add(instructions, arrow1);
 
 instructionView.addEventListener("click", function(){
-		var inWindow = Ti.UI.createWindow({
-			title: "Instructions",
-			url: 'instructions.js',
-			nav: navWin
-		});
-		navWin.openWindow(inWindow, {animate:true});
+	var inWindow = Ti.UI.createWindow({
+		title: "Instructions",
+		url: 'instructions.js',
+		nav: navWin
+	});
+	navWin.openWindow(inWindow, {animate:true});
 	});
 
 
 var about = Titanium.UI.createLabel({
-	text: 'About this App',
-	font: {fontSize: 20, fontWeight: 'bold'},
-	left: 20
+	left: 20,
+	text: 'About Converter+',
+	font: {fontSize: 20, fontWeight: 'bold'}
 });
 
 var arrow2 = Titanium.UI.createImageView({
@@ -303,12 +302,12 @@ var arrow2 = Titanium.UI.createImageView({
 });
 
 var aboutView = Titanium.UI.createView({
-    borderRadius: 5,
     bottom: 50,
     width: Ti.UI.setWidth - 20,
     height: 50,
     left: 10,
     right: 10,
+    borderRadius: 5,
 	font: {fontSize: 20},
 	backgroundColor: '#f0ad4e',
 	file:'about.js'
@@ -316,13 +315,14 @@ var aboutView = Titanium.UI.createView({
 aboutView.add(about, arrow2);
 
 aboutView.addEventListener("click", function(){
-		var abWindow = Ti.UI.createWindow({
-			title: "About this App",
-			url: 'about.js',
-			nav: navWin
-		});
-		navWin.openWindow(abWindow, {animate:true});
+	var abWindow = Ti.UI.createWindow({
+		title: "About Info",
+		url: 'about.js',
+		nav: navWin
 	});
+	navWin.openWindow(abWindow, {animate:true});
+	});
+
 
 //Main Code
 cWin.add(instructionView, aboutView);

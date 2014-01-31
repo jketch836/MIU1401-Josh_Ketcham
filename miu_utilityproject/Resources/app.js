@@ -20,7 +20,7 @@ var theUsername = Titanium.UI.createTextField({
     color:'#000',    
     hintText:'Username',
     value: '',
-    font:{fontWeight:'bold',fontSize:15, fontFamily:'Helvetica'},
+    font:{fontSize:15, fontWeight:'bold', fontFamily:'Helvetica'},
     borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 });
 
@@ -31,43 +31,42 @@ var thePassword = Titanium.UI.createTextField({
     width:300,
     color:'#000',
     hintText:'Password',
-    // passwordMask: true,
+    passwordMask: true,
     value: '',
-    font:{fontWeight:'bold',fontSize:15, fontFamily:'Helvetica'},
+    font:{fontSize:15, fontWeight:'bold', fontFamily:'Helvetica'},
     borderStyle: Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
 });
 
 var signInButton = Ti.UI.createButton({
-    title:'Sign In',
     top:340,
     width:90,
     height:35,
     borderRadius:5,
+    title:'Sign In',
    	font:{fontWeight:'bold',fontSize:16, fontFamily:'Helvetica'},
    	file: 'Main_menu.js'
 });
  
 signInButton.addEventListener('click', function(){
-	// if (theUsername.value != '' & thePassword.value != ''){
-		///// var alertDialog = Ti.UI.createAlertDialog({
-        	///// title: 'Login Successful',
-        	///// buttonNames: ['OK']
-   		///// });
+	if (theUsername.value != '' & thePassword.value != ''){
+		// var alertDialog = Ti.UI.createAlertDialog({
+        	// title: 'Login Successful',
+        	// buttonNames: ['OK']
+   		// });
    		var mainWindow = Titanium.UI.createWindow({  
 			title:'Main Menu',
 			backgroundColor:'#fff',
 			url:'Main_menu.js'
 		});
 		mainWindow.open(mainWindow, {animate: true});
-		///// alertDialog.show();
-	// } else {
-		// var alertDialogPTA = Ti.UI.createAlertDialog({
-    		// title: 'Please try agin',
-        	// buttonNames: ['OK']
-    	// });	
-    	// alertDialogPTA.show();
-	// }
-	// console.log(e.source.value);
+		// alertDialog.show();
+	} else {
+		var alertDialogPTA = Ti.UI.createAlertDialog({
+    		title: 'Please try agin',
+        	buttonNames: ['OK']
+    	});	
+    	alertDialogPTA.show();
+	}
 });
 
 

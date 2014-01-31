@@ -1,0 +1,52 @@
+
+//Window
+var cWin = Ti.UI.currentWindow;
+
+
+
+var aboutLabel = Titanium.UI.createLabel({
+	text: 'About Converter+',
+	font: {fontSize: 22, fontWeight: 'bold'},
+	color: '#fff',
+	center: 0,
+	top: 20
+});
+
+var aboutInfoLabel = Titanium.UI.createLabel({
+	text: '* This app was built by a student named Josh Ketcham, his picture is below (no he is not in pain, he just has an awkward smile). It was inspired by an app from the Apple iTunes App Store.',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 80
+});
+
+var selfieImage = Titanium.UI.createImageView({
+	image:'selfie.jpg',
+	height: 100,
+	width: 150,
+	center: 0,
+	top: 180
+});
+
+
+var aboutPeopleLabel = Titanium.UI.createLabel({
+	text: '* Josh would also like to acknowledge those who helped him with this app. The Course Instructor, Miss Robin Groff Alarcon, who believed in him and his classmates even when they were stressing out about it. The Lab Instructor, Richard Hutchenson (who was awesome!)  helped him with his logic to cerate this this app.',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 310
+});
+
+var aboutView = Titanium.UI.createView({
+    borderRadius: 5,
+    width: 310,
+    height: 500,
+    left: 5,
+    right: 5,
+	font: {fontSize: 20},
+	backgroundColor: '#333',
+});
+aboutView.add(aboutLabel, aboutInfoLabel, selfieImage, aboutPeopleLabel);
+
+//Main Code
+cWin.add(aboutView);

@@ -1,0 +1,88 @@
+
+//Window
+var cWin = Ti.UI.currentWindow;
+
+
+
+var instructionLabel = Titanium.UI.createLabel({
+	text: 'Instructions',
+	font: {fontSize: 22, fontWeight: 'bold'},
+	color: '#fff',
+	center: 0,
+	top: 20
+});
+
+var fromInstructionLabel = Titanium.UI.createLabel({
+	text: '* Click the Box on the left with the light text and input a number (In this example, 78 millimeters).',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 50
+});
+
+var convertFromImage = Titanium.UI.createImageView({
+	image:'convertFromLabel.png',
+	height: 50,
+	width: 100,
+	center: 0,
+	top: 90
+});
+
+
+var convertInstructionLabel = Titanium.UI.createLabel({
+	text: '* Once this is complete, hit the Convert button on the far right.',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 170
+});
+
+var convertLabelImage = Titanium.UI.createImageView({
+	image:'convertLabel.png',
+	height: 50,
+	width: 100,
+	center: 0,
+	top: 210
+});
+
+
+var toInstructionLabel = Titanium.UI.createLabel({
+	text: '* Once the Convert button is pressed, the output conversion should be in the right box (78 millimeters equals 7.8 centimeters).',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 280
+});
+
+var convertToImage = Titanium.UI.createImageView({
+	image:'convertToLabel.png',
+	height: 50,
+	width: 100,
+	center: 0,
+	top: 340
+});
+
+
+var noteLabel = Titanium.UI.createLabel({
+	text: '* Once the Convert button is pressed, the output conversion should be in the right box (78 millimeters equals 7.8 centimeters).',
+	font: {fontSize: 14},
+	color: '#fff',
+	center: 0,
+	top: 280
+});
+
+
+var instructionsView = Titanium.UI.createView({
+    borderRadius: 5,
+    width: 310,
+    height: 500,
+    left: 5,
+    right: 5,
+	font: {fontSize: 20},
+	backgroundColor: '#333',
+});
+instructionsView.add(instructionLabel); 
+instructionsView.add(fromInstructionLabel, convertFromImage, convertInstructionLabel, convertLabelImage, toInstructionLabel, convertToImage, noteLabel);
+
+//Main Code
+cWin.add(instructionsView);

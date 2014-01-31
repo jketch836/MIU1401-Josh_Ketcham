@@ -1,0 +1,56 @@
+
+//Window
+var cWin = Ti.UI.currentWindow;
+
+
+
+var convertToImage = Titanium.UI.createImageView({
+	image:'convertToLabel.png',
+	height: 25,
+	right: 0
+});
+
+var convertLabelImage = Titanium.UI.createImageView({
+	image:'convertLabel.png',
+	height: 25,
+	right: 0
+});
+
+
+var instructionLabel = Titanium.UI.createLabel({
+	text: 'Instructions',
+	font: {fontSize: 22, fontWeight: 'bold'},
+	color: '#fff',
+	center: 0,
+	top: 20
+});
+
+var fromInstructionLabel = Titanium.UI.createLabel({
+	text: 'Click the Box on the left and input a number (e.g 12, 45, 78, etc.)',
+	font: {fontSize: 14, fontWeight: 'bold'},
+	color: '#fff',
+	center: 0,
+	top: 50
+});
+
+var convertFromImage = Titanium.UI.createImageView({
+	image:'convertFromLabel.png',
+	height: 25,
+	right: 0,
+	top: 70
+});
+
+
+var instructionsView = Titanium.UI.createView({
+    borderRadius: 5,
+    width: 310,
+    height: 500,
+    left: 5,
+    right: 5,
+	font: {fontSize: 20},
+	backgroundColor: '#333',
+});
+instructionsView.add(instructionLabel, fromInstructionLabel, convertFromImage);
+
+//Main Code
+cWin.add(instructionsView);
